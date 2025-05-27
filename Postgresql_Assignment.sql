@@ -113,20 +113,3 @@ WHERE ranger_id NOT IN (
     WHERE ranger_id IS NOT NULL
 );
 
--- =====================================================
--- VERIFICATION QUERIES (Optional - for testing)
--- =====================================================
-
--- Verify table structures
-SELECT table_name, column_name, data_type, is_nullable
-FROM information_schema.columns
-WHERE table_schema = 'public'
-AND table_name IN ('rangers', 'species', 'sightings')
-ORDER BY table_name, ordinal_position;
-
--- Verify sample data
-SELECT 'Rangers Count' as table_info, COUNT(*) as record_count FROM rangers
-UNION ALL
-SELECT 'Species Count', COUNT(*) FROM species
-UNION ALL
-SELECT 'Sightings Count', COUNT(*) FROM sightings;
